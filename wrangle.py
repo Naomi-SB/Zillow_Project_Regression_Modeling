@@ -295,11 +295,13 @@ def BTH_corr_heatmap(train):
 ##### PROPERTY LOCATIONS
 
 def correlation_by_county(train):
+    '''This function produces histogram visualizations for four featrures compared by county'''
+    sns.set(font_scale=1.5)
 
-    sns.set()
 
-    fig, axes = plt.subplots(2,2)#.figsize(12,8)
+    fig, axes = plt.subplots(2,2,figsize=(15,8))
 
+    fig.suptitle("Features by County")
     sns.histplot(data =train, x = "year_built", hue = "county", ax=axes[0,0])
     sns.histplot(data=train, x= 'house_square_feet', hue = 'county', ax = axes[0,1])
     sns.histplot(data = train, x = "bath_to_bed_ratio", hue = "county", ax = axes[1,0])
